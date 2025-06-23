@@ -44,7 +44,7 @@ SELECT
 	MIN(season)
 FROM player_seasons;
 
--- This is a cumulative query
+-- (Incremental Build) This is a cumulative query
 -- Insert a new set of players for the next season, combining data from the previous season and the current one
 -- This acts as a seed query for the players table
 INSERT INTO players
@@ -150,7 +150,7 @@ WHERE current_season = 2001 AND player_name='Michael Jordan';
 -- Drop the players table (cleanup)
 DROP TABLE players;
 
--- Direct insert data from the first season to last season into the players table
+-- (Backfill Build) Direct insert data from the first season to last season into the players table
 INSERT INTO players
 WITH years AS (
     SELECT * FROM GENERATE_SERIES(1996, 2022) AS season
