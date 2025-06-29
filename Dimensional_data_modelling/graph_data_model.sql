@@ -1,3 +1,7 @@
+-- Business Case Scenario:
+-- This script models NBA data as a property graph, representing players, teams, and games as vertices and their relationships as edges.
+-- It enables graph-based analytics, such as finding player connections, team associations, and game participation, supporting advanced network analysis and visualization for sports analytics and business intelligence.
+
 -- DDL
 -- Create a ENUM vertex_type for players
 CREATE TYPE vertex_type AS ENUM(

@@ -1,3 +1,8 @@
+-- Business Case Scenario:
+-- This script models player season data using composite types and arrays, enabling efficient storage and retrieval of a player's statistics across multiple seasons.
+-- It supports both incremental and backfill builds, allowing for historical and up-to-date analysis of player performance, career progression, and classification (e.g., star, good, average, bad).
+-- This enables advanced analytics on player development, retention, and performance trends for sports analytics and business intelligence.
+
 -- DImensional Data Model with Structs and Arrays
 -- Data used in this model is from the NBA seasons, /data/palyer_seasons.csv
 -- Select the first 100 rows from the player_seasons table

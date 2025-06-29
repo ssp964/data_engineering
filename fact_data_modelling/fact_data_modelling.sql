@@ -1,3 +1,9 @@
+-- Business Case Scenario:
+-- This script creates a deduplicated, analytics-ready fact table (fct_game_details) for basketball game data.
+-- It ensures each player's game performance is uniquely captured per game and team, removing duplicates from raw data.
+-- The fact table aggregates player statistics (minutes, points, rebounds, etc.) and flags participation statuses (Did Not Play, Did Not Dress, Not With Team, Playing at Home).
+-- This enables accurate, reliable reporting and analysis of player and team performance, participation trends, and supports downstream BI and data science use cases.
+
 -- Fact data modelling
 
 -- Checking for duplicates in game_details table

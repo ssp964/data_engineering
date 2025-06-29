@@ -1,3 +1,8 @@
+-- Business Case Scenario:
+-- This script implements a Slowly Changing Dimension (SCD) Type 2 model for tracking changes in player scoring class and activity status over time.
+-- It maintains a full history of changes, enabling historical analysis of player performance, career transitions, and status changes.
+-- This supports accurate reporting, longitudinal studies, and compliance with data warehousing best practices for sports analytics and business intelligence.
+
 -- Modelling SCD type 2 table
 
 SELECT 

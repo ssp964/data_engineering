@@ -1,3 +1,7 @@
+-- Business Case Scenario:
+-- This script creates a fact table to track user activity dates and encodes activity history using bit arrays for efficient storage and querying.
+-- It enables fast analysis of user engagement patterns, retention, and activity streaks at daily, weekly, or monthly granularity.
+
 -- DDL for users_cumulated table
 
 DROP TABLE users_cumulated;

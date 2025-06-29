@@ -1,3 +1,8 @@
+-- Business Case Scenario:
+-- This script models the actor_films dataset to facilitate efficient analysis of actors' careers and film participation.
+-- It defines new tables and data types to store an actor's filmography as arrays of structured records, classifies actors by performance quality, and tracks their active status over time.
+-- The script implements both cumulative and SCD Type 2 modeling, enabling historical and incremental tracking of changes in actor performance and activity.
+-- This supports advanced analytics on actor career progression, film participation, and performance trends, providing a robust foundation for entertainment industry reporting and business intelligence.
 
 -- 1. DDL for actors table: Create a DDL for an actors table with the following fields:
 
