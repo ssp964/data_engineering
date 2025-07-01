@@ -20,6 +20,12 @@ This directory provides SQL scripts to build robust, analytics-ready fact tables
 - **date_metrics_format_agg.sql**  
   Uses **events.csv** as its data source. Aggregates user metrics (such as site hits) into arrays for each month, supporting advanced analytics on user behavior and monthly trends.
 
+- **HW/**  
+  Contains advanced SQL scripts for modeling and analyzing host and device activity, including cumulative and incremental loading, activity date lists, and bitwise activity encoding. Uses **events.csv** and **devices** for all scripts.
+  - `host_activity_reduced_incremental_load.sql`: Monthly host activity with hit and unique visitor arrays.
+  - `host_activity_datelist_cumulative_query.sql`: Cumulative host activity date lists.
+  - `device_activity_datelist_and_datelist_int.sql`: Device activity per user and browser, referencing both events and devices.
+
 ## Achievements
 
 Through this project, the following data engineering skills and knowledge were developed and strengthened:
