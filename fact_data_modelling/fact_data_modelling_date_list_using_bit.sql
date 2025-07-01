@@ -8,7 +8,7 @@ DROP TABLE users_cumulated;
 
 CREATE TABLE users_cumulated (
 	user_id TEXT, 
-	-- The list of dates in the past where the suer was active
+	-- The list of dates in the past where the user was active
 	dates_active DATE[],
 	-- the current data for the user
 	date DATE, 
