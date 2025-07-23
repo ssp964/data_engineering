@@ -1,4 +1,4 @@
-# DataExpert.io Analytics Platform
+# User Engagement Analytics & Behavioral Modeling Framework
 
 ## Background 
 
