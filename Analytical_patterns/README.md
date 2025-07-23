@@ -46,5 +46,5 @@ These classifications are based on presence or absence of event data. These stat
 
 This pattern is implemented via a **cumulative update query** against the `users_growth_accounting` table which will be used by analysts, derived from the `events` table. Each lifecycle label is generated using deterministic rules around timestamped activity.
 
-> **📝 Note:** The SQL query used for this focus area can be found here: [users_growth_accounting.sql](https://github.com/ssp964/data_engineering/blob/main/Analytical_patterns/users_growth_accounting.sql)
+> **Note:** The SQL query used for this focus area can be found here: [users_growth_accounting.sql](https://github.com/ssp964/data_engineering/blob/main/Analytical_patterns/users_growth_accounting.sql)
 

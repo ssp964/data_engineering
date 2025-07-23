@@ -23,19 +23,20 @@ CREATE TABLE users_growth_accounting(
 -- Churned: User was active yesterday but is not active today.
 -- Stale: User is not active today and has not been active for a long duration (e.g., 7+ days).
 
-INSERT INTO users_growth_accounting
+INSERT INTO users_growth_accountingINSERT INTO users_growth_accounting
 WITH yesterday AS (
 	SELECT 
 		*
 	FROM users_growth_accounting
-	WHERE date = DATE('2022-12-31')
+	WHERE date = DATE('2023-01-04')
 ), today AS (
 	SELECT
 		user_id, 
 		DATE_TRUNC('day', event_time::TIMESTAMP) AS today_date,
 		COUNT(1)
 	FROM events
-	WHERE DATE_TRUNC('day', event_time::TIMESTAMP) = DATE('2023-01-01')
+	WHERE DATE_TRUNC('day', event_time::TIMESTAMP) = DATE('2023-01-05') AND
+		user_id IS NOT NULL
 	GROUP BY user_id, DATE_TRUNC('day', event_time::TIMESTAMP)
 )
 SELECT 
@@ -51,14 +52,20 @@ SELECT
 	END AS daily_active_state,
 	CASE
 		WHEN y.user_id IS NULL THEN 'New'
-		WHEN y.last_active_date < t.today_date - Interval '7 day' THEN 'Resurrected'
-		WHEN t.today_date IS NULL AND y.last_active_date = y.date - interval '7 day' THEN 'Churned'
+		WHEN y.last_active_date < t.today_date - INTERVAL '7 day' THEN 'Resurrected'
+		WHEN t.today_date IS NULL AND y.last_active_date = y.date - INTERVAL '7 day' THEN 'Churned'
 		WHEN COALESCE(t.today_date, y.last_active_date) + INTERVAL '7 day' >= y.date THEN 'Retained'
 		ELSE 'Stale'
 	END AS weekly_active_state,
-	COALESCE(t.today_date, y.date + Interval '1 day') as date
+	COALESCE(y.dates_active, ARRAY[]::DATE[]) || 
+		CASE
+			WHEN t.user_id IS NOT NULL THEN ARRAY [t.today_date]
+			ELSE ARRAY[]::DATE[]
+		END AS date_list,
+	COALESCE(t.today_date, y.date + INTERVAL '1 day') as date
 FROM today t
 FULL OUTER JOIN yesterday y
-	ON t.user_id = y.user_id
+	ON t.user_id = y.user_id;
 
+SELECT * FROM users_growth_accounting;
 
